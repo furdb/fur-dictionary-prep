@@ -28,7 +28,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
     )?;
 
     let mut table = db.get_table("dictionary", Some(table_info))?;
-    table.save_info()?;
 
     let words = [
         HashMap::from([("word", "7"), ("definition", "18")]),
