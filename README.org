@@ -1,4 +1,4 @@
-#+TITLE: FurDB Demo
+#+TITLE: FurDB Dictionary DB Builder
 
 This repository contains a dictionary demo code for [[https://github.com/madhavan-raja/fur.git][FurDB]]'s database builder.
 
