@@ -39,5 +39,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     table.add(&words).await?;
 
+    table.generate_all_sortfiles().await?;
+
     Ok(())
 }
