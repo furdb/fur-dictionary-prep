@@ -16,7 +16,32 @@ static WORDS: &[(&str, &str)] = &[
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    prepare_database().await?;
+    prepare_converter().await?;
+    // prepare_database().await?;
+
+    Ok(())
+}
+
+async fn prepare_converter() -> Result<(), Box<dyn Error>> {
+    let mut count = HashMap::<char, i32>::new();
+
+    for (word, definition) in WORDS {
+        for letter in word.chars() {
+            *count.entry(letter).or_insert(0) += 1;
+        }
+
+        for letter in definition.chars() {
+            *count.entry(letter).or_insert(0) += 1;
+        }
+    }
+
+    let mut frequencies: Vec<_> = count.iter().collect();
+    frequencies.sort_by(|a, b| a.1.cmp(b.1).reverse());
+
+    println!("{}", frequencies.len());
+    for f in frequencies {
+        println!("{}: {}", f.0, f.1);
+    }
 
     Ok(())
 }
