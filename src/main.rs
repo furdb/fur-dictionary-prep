@@ -16,8 +16,8 @@ static WORDS: &[(&str, &str)] = &[
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    prepare_converter().await?;
-    // prepare_database().await?;
+    // prepare_converter().await?;
+    prepare_database().await?;
 
     Ok(())
 }
@@ -38,7 +38,7 @@ async fn prepare_converter() -> Result<(), Box<dyn Error>> {
     let mut frequencies: Vec<_> = count.iter().collect();
     frequencies.sort_by(|a, b| a.1.cmp(b.1).reverse());
 
-    println!("{}", frequencies.len());
+    println!("{}", count.len());
     for f in frequencies {
         println!("{}: {}", f.0, f.1);
     }
@@ -52,12 +52,7 @@ async fn prepare_database() -> Result<(), Box<dyn Error>> {
 
     let db = FurDB::new(db_path, Some(db_info))?;
 
-    let word_column = FurColumn::new(
-        "word",
-        Some("Word"),
-        80,
-        FurDataType::new("long_string", None)?,
-    )?;
+    let word_column = FurColumn::new("word", Some("Word"), 80, FurDataType::new("word", None)?)?;
 
     let table_info = FurTableInfo::new(
         "Dictionary",
@@ -68,7 +63,7 @@ async fn prepare_database() -> Result<(), Box<dyn Error>> {
                 "definition",
                 Some("Definition"),
                 240,
-                FurDataType::new("long_string", None)?,
+                FurDataType::new("word", None)?,
             )?,
         ]),
     )?;
