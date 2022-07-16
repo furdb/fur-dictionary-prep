@@ -53,7 +53,7 @@ async fn prepare_database() -> Result<(), Box<dyn Error>> {
 
     let db = FurDB::new(db_path, Some(db_info))?;
 
-    let word_column = FurColumn::new("word", Some("Word"), 80, FurDataType::new("word", None)?)?;
+    let word_column = FurColumn::new("word", Some("Word"), 44, FurDataType::new("word", None)?)?;
 
     let table_info = FurTableInfo::new(
         "Dictionary",
@@ -63,7 +63,7 @@ async fn prepare_database() -> Result<(), Box<dyn Error>> {
             FurColumn::new(
                 "definition",
                 Some("Definition"),
-                240,
+                76,
                 FurDataType::new("word", None)?,
             )?,
         ]),
