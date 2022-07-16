@@ -22,6 +22,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+#[allow(dead_code)]
 async fn prepare_converter() -> Result<(), Box<dyn Error>> {
     let mut count = HashMap::<char, i32>::new();
 
