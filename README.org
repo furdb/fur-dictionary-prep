@@ -1,14 +1,9 @@
 #+TITLE: FurDB Dictionary DB Builder
 
-This repository contains a dictionary demo code for [[https://github.com/madhavan-raja/fur.git][FurDB]]'s database builder.
+This repository contains a dictionary demo code for [[https://github.com/madhavan-raja/fur-dictionary.git][FurDB]]'s database builder.
 
-* Installation
 Clone this repo with
 
 #+BEGIN_SRC bash
-  git clone https://github.com/madhavan-raja/fur.git
+  git clone https://github.com/furdb/fur-dictionary-prep.git
 #+END_SRC
-
-You will also need the base repo for [[https://github.com/madhavan-raja/fur.git][FurDB]]. Alternatively, you can use the Git repository directly. See its README for more details.
-
-Regardless, you will need a conversion server, such as [[https://github.com/madhavan-raja/fur-converter][Fur Converter]].
