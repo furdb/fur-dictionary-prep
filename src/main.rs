@@ -48,7 +48,7 @@ async fn prepare_converter() -> Result<(), Box<dyn Error>> {
 }
 
 async fn prepare_database() -> Result<(), Box<dyn Error>> {
-    let db_path = PathBuf::from("D:\\Home\\Repositories\\FurDB\\TestDBs\\Dictionary");
+    let db_path = PathBuf::from("/furdb/Dictionary");
     let db_info = FurDBInfo::new("Dictionary")?;
 
     let db = FurDB::new(db_path, Some(db_info))?;
